@@ -6,7 +6,7 @@
     <x:Property Name="out_ErrorMessage" Type="OutArgument(x:String)" />
     <x:Property Name="out_ExceptionType" Type="OutArgument(x:String)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1168,1436.6666666666667</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1164.6666666666667,1806</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -109,21 +109,22 @@
       <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Get Error Info" sap:VirtualizedContainerService.HintSize="692.6666666666666,1372" sap2010:WorkflowViewState.IdRef="Sequence_57">
+  <Sequence DisplayName="Get Error Info" sap:VirtualizedContainerService.HintSize="692.6666666666666,1741.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_57">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsPinned">False</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <If Condition="[CBool(in_Config(&quot;UseDataServiceErrors&quot;))]" DisplayName="If UseDataService" sap:VirtualizedContainerService.HintSize="630.6666666666666,1261.3333333333333" sap2010:WorkflowViewState.IdRef="If_19">
+    <If Condition="[CBool(in_Config(&quot;UseDataServiceErrors&quot;))]" DisplayName="If UseDataService" sap:VirtualizedContainerService.HintSize="630.6666666666666,1630.6666666666667" sap2010:WorkflowViewState.IdRef="If_19">
       <If.Then>
-        <Sequence sap:VirtualizedContainerService.HintSize="376,202.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_53">
+        <Sequence sap:VirtualizedContainerService.HintSize="376,387.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_53">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
+          <ui:LogMessage DisplayName="Log Message Data Service" sap:VirtualizedContainerService.HintSize="334,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;Getting error from data service&quot;]" />
           <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="GetErrorDetailsDataService.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_16" UnSafe="False" WorkflowFileName="Framework\DataService\GetErrorDetailsDataService.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <OutArgument x:TypeArguments="x:String" x:Key="out_ErrorDescription">[out_ErrorMessage]</OutArgument>
@@ -135,21 +136,22 @@
         </Sequence>
       </If.Then>
       <If.Else>
-        <Sequence sap:VirtualizedContainerService.HintSize="596.6666666666666,874.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_56">
+        <Sequence sap:VirtualizedContainerService.HintSize="596.6666666666666,1059.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_56">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <If Condition="[CBool(in_Config(&quot;UseDB&quot;))]" DisplayName="If Use DB" sap:VirtualizedContainerService.HintSize="554.6666666666666,787.3333333333334" sap2010:WorkflowViewState.IdRef="If_20">
+          <If Condition="[CBool(in_Config(&quot;UseDB&quot;))]" DisplayName="If Use DB" sap:VirtualizedContainerService.HintSize="554.6666666666666,972" sap2010:WorkflowViewState.IdRef="If_20">
             <If.Then>
-              <Sequence sap:VirtualizedContainerService.HintSize="376,337.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_54">
+              <Sequence sap:VirtualizedContainerService.HintSize="376,522" sap2010:WorkflowViewState.IdRef="Sequence_54">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <r:GetErrorDetails DisplayName="Get Error Details" sap:VirtualizedContainerService.HintSize="334,250" sap2010:WorkflowViewState.IdRef="GetErrorDetails_4" in_Config="[in_Config]" in_Exception="[in_Exception]" in_ExceptionLanguage="Español" out_ErrorCode="[out_ErrorCode]" out_ErrorMessage="[out_ErrorMessage]" out_ErrorType="[out_ExceptionType]" />
+                <ui:LogMessage DisplayName="Log Message DB" sap:VirtualizedContainerService.HintSize="334,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_2" Message="[&quot;Getting error from DB&quot;]" />
+                <r:GetErrorDetails DisplayName="Get Error Details from DB" sap:VirtualizedContainerService.HintSize="334,250" sap2010:WorkflowViewState.IdRef="GetErrorDetails_4" in_Config="[in_Config]" in_Exception="[in_Exception]" in_ExceptionLanguage="Español" out_ErrorCode="[out_ErrorCode]" out_ErrorMessage="[out_ErrorMessage]" out_ErrorType="[out_ExceptionType]" />
               </Sequence>
             </If.Then>
             <If.Else>
@@ -159,7 +161,7 @@
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:MultipleAssign sap2010:Annotation.AnnotationText="If using this branch, change the source of error code acordingly" DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="478.6666666666667,178.66666666666666" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
+                <ui:MultipleAssign sap2010:Annotation.AnnotationText="If using this branch, change the source of error code acordingly" DisplayName="Multiple Assign Default" sap:VirtualizedContainerService.HintSize="478.6666666666667,178.66666666666666" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
                   <ui:MultipleAssign.AssignOperations>
                     <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                       <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">

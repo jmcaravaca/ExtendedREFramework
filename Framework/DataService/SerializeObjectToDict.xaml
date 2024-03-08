@@ -3,7 +3,7 @@
     <x:Property Name="in_Object" Type="InArgument(x:Object)" />
     <x:Property Name="out_Dict" Type="OutArgument(scg:Dictionary(x:String, x:Object))" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1168,817.3333333333334</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1168,973.3333333333334</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -103,9 +103,8 @@
       <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Serialize to dict" sap:VirtualizedContainerService.HintSize="572,724" sap2010:WorkflowViewState.IdRef="Sequence_11">
+  <Sequence DisplayName="Serialize to dict" sap:VirtualizedContainerService.HintSize="572,908.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_11">
     <Sequence.Variables>
-      <Variable x:TypeArguments="scg:Dictionary(x:String, x:Object)" Name="out_Dict" />
       <Variable x:TypeArguments="sr:PropertyInfo[]" Name="properties" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
@@ -113,7 +112,8 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Assign sap:VirtualizedContainerService.HintSize="510,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_6">
+    <ui:LogMessage DisplayName="Log Message Serialize Object" sap:VirtualizedContainerService.HintSize="510,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Trace]" Message="[&quot;Serialize object&quot;]" />
+    <Assign DisplayName="Assign Output Dictionary" sap:VirtualizedContainerService.HintSize="510,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_6">
       <Assign.To>
         <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)">[out_Dict]</OutArgument>
       </Assign.To>
@@ -121,7 +121,7 @@
         <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)">[new dictionary(of string, Object)]</InArgument>
       </Assign.Value>
     </Assign>
-    <Assign sap:VirtualizedContainerService.HintSize="510,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_7">
+    <Assign DisplayName="Assign Object Properties" sap:VirtualizedContainerService.HintSize="510,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_7">
       <Assign.To>
         <OutArgument x:TypeArguments="sr:PropertyInfo[]">[properties]</OutArgument>
       </Assign.To>
@@ -129,7 +129,7 @@
         <InArgument x:TypeArguments="sr:PropertyInfo[]">[in_Object.GetType().GetRuntimeProperties.ToArray]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:ForEach x:TypeArguments="sr:PropertyInfo" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="510,362.6666666666667" sap2010:WorkflowViewState.IdRef="ForEach`1_4" Values="[properties]">
+    <ui:ForEach x:TypeArguments="sr:PropertyInfo" CurrentIndex="{x:Null}" DisplayName="For Each Property of object" sap:VirtualizedContainerService.HintSize="510,362.6666666666667" sap2010:WorkflowViewState.IdRef="ForEach`1_4" Values="[properties]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="sr:PropertyInfo">
           <ActivityAction.Argument>
@@ -141,7 +141,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Assign sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_8">
+            <Assign DisplayName="Assign Add to dict" sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_8">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:Object">[out_Dict(prop.Name)]</OutArgument>
               </Assign.To>

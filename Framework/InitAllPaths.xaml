@@ -2,7 +2,7 @@
   <x:Members>
     <x:Property Name="io_Config" Type="InOutArgument(scg:Dictionary(x:String, x:Object))" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1168,2239.3333333333335</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1168,2424</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -112,7 +112,7 @@
       <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Init all Paths from &quot;Paths&quot;sheet in Config File" sap:VirtualizedContainerService.HintSize="807.3333333333334,2174.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_16">
+  <Sequence sap2010:Annotation.AnnotationText="Init all Paths from &quot;Paths&quot;sheet in Config File" sap:VirtualizedContainerService.HintSize="807.3333333333334,2359.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_16">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="ConfigFile" />
     </Sequence.Variables>
@@ -122,6 +122,7 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message InitPaths" sap:VirtualizedContainerService.HintSize="745.3333333333334,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;Init all paths&quot;]" />
     <Assign DisplayName="Assign ConfigFile" sap:VirtualizedContainerService.HintSize="745.3333333333334,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_27">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[ConfigFile]</OutArgument>
@@ -150,7 +151,7 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[dt_Paths]" DisplayName="Read range (Assets sheet)" sap:VirtualizedContainerService.HintSize="644.6666666666666,88" sap2010:WorkflowViewState.IdRef="ReadRange_5" SheetName="Paths" WorkbookPath="[ConfigFile]" />
-          <ui:FilterDataTable DataTable="[dt_Paths]" DisplayName="Filter Data Table" FilterRowsMode="Remove" sap:VirtualizedContainerService.HintSize="644.6666666666666,164" sap2010:WorkflowViewState.IdRef="FilterDataTable_2" OutputDataTable="[dt_Paths]" SelectColumnsMode="Keep">
+          <ui:FilterDataTable DataTable="[dt_Paths]" DisplayName="Filter Data Table Remove Empty" FilterRowsMode="Remove" sap:VirtualizedContainerService.HintSize="644.6666666666666,164" sap2010:WorkflowViewState.IdRef="FilterDataTable_2" OutputDataTable="[dt_Paths]" SelectColumnsMode="Keep">
             <ui:FilterDataTable.Filters>
               <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
                 <ui:FilterOperationArgument Operand="{x:Null}" BooleanOperator="And" Operator="EMPTY">
@@ -191,9 +192,6 @@
                   </sap:WorkflowViewStateService.ViewState>
                   <TryCatch.Try>
                     <Sequence DisplayName="Get asset from Orchestrator" sap:VirtualizedContainerService.HintSize="572,766" sap2010:WorkflowViewState.IdRef="Sequence_14">
-                      <Sequence.Variables>
-                        <Variable x:TypeArguments="ui:GenericValue" Name="AssetValue" />
-                      </Sequence.Variables>
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -216,7 +214,7 @@ io_Config(row("EndpointPathName").ToString).ToString.TrimStart("\"c,  "/"c))]</I
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <Assign sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_28">
+                            <Assign DisplayName="Assign Replace windows separator" sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_28">
                               <Assign.To>
                                 <OutArgument x:TypeArguments="x:Object">[io_Config(row("Name").ToString)]</OutArgument>
                               </Assign.To>
@@ -233,7 +231,7 @@ io_Config(row("EndpointPathName").ToString).ToString.TrimStart("\"c,  "/"c))]</I
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <Assign sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_29">
+                            <Assign DisplayName="Assign use unix separator" sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_29">
                               <Assign.To>
                                 <OutArgument x:TypeArguments="x:Object">[io_Config(row("Name").ToString)]</OutArgument>
                               </Assign.To>
@@ -286,7 +284,7 @@ io_Config(row("EndpointPathName").ToString).ToString.TrimStart("\"c,  "/"c))]</I
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="Exception" />
             </ActivityAction.Argument>
-            <Rethrow DisplayName="Rethrow loading asset exception" sap:VirtualizedContainerService.HintSize="334,25" sap2010:WorkflowViewState.IdRef="Rethrow_3" />
+            <Rethrow DisplayName="Rethrow loading asset exception" sap:VirtualizedContainerService.HintSize="334,25.333333333333332" sap2010:WorkflowViewState.IdRef="Rethrow_3" />
           </ActivityAction>
         </Catch>
       </TryCatch.Catches>
