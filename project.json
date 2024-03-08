@@ -8,6 +8,7 @@
     "RPA.002Mail": "[1.0.0]",
     "RPA.008Database": "[1.0.0]",
     "UiPath.Database.Activities": "[1.7.1]",
+    "UiPath.DataService.Activities": "[23.10.0]",
     "UiPath.Excel.Activities": "[2.16.2]",
     "UiPath.Mail.Activities": "[1.19.0]",
     "UiPath.MicrosoftOffice365.Activities": "[2.1.1]",
@@ -16,7 +17,14 @@
     "UiPath.UIAutomation.Activities": "[23.10.9]"
   },
   "webServices": [],
-  "entitiesStores": [],
+  "entitiesStores": [
+    {
+      "serviceDocument": ".entities/EntitiesStore.json",
+      "tenantName": "AICenterTests",
+      "namespace": "RPAData",
+      "uniqueReference": "Gjd9QDL2UvOcRqUHTrHrro3m2TrBpVjJdL0HnVXN2Oo="
+    }
+  ],
   "schemaVersion": "4.0",
   "studioVersion": "22.10.5.0",
   "projectVersion": "0.9.0",
