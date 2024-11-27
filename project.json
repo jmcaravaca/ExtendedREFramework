@@ -4,14 +4,15 @@
   "description": "REFramework customizado con codigos de error. Template base",
   "main": "Main.xaml",
   "dependencies": {
-    "QueueItemExtensions": "[3.0.3]",
+    "QueueItemExtensions": "[3.1.1]",
     "RPA.002Mail": "[1.1.1]",
-    "RPA.008Database": "[1.5.0]",
+    "RPA.008Database": "[1.5.1]",
     "UiPath.Database.Activities": "[1.7.1]",
     "UiPath.DataService.Activities": "[23.10.0]",
     "UiPath.Excel.Activities": "[2.24.1]",
     "UiPath.Mail.Activities": "[1.19.0]",
     "UiPath.MicrosoftOffice365.Activities": "[2.6.25]",
+    "UiPath.MLServices.Activities": "[2.0.3]",
     "UiPath.System.Activities": "[23.10.6]",
     "UiPath.Testing.Activities": "[23.10.1]",
     "UiPath.UIAutomation.Activities": "[23.10.9]"
@@ -27,7 +28,7 @@
   ],
   "schemaVersion": "4.0",
   "studioVersion": "22.10.5.0",
-  "projectVersion": "2.2.1",
+  "projectVersion": "2.2.3",
   "runtimeOptions": {
     "autoDispose": false,
     "netFrameworkLazyLoading": false,
